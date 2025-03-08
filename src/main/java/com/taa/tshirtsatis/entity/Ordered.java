@@ -8,79 +8,79 @@ import java.util.Set;
 @Entity
 @Table(name = "ordered")
 public class Ordered {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @OneToMany(mappedBy = "ordered")
-    private Set<Rewiew> rewiews;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	@OneToMany(mappedBy = "ordered")
+	private Set<Rewiew> rewiews;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Order order;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Order order;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id",nullable = false)
-    private Users user;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id", nullable = false)
+	private Users user;
 
-    private Date date;
+	private Date date;
 
-    private String State;
+	private State state;
 
-    public Ordered() {
-    }
+	public Ordered() {
+	}
 
-    public Ordered(int id, Set<Rewiew> rewiews, Order order, Date date, String state) {
-        this.id = id;
-        this.rewiews = rewiews;
-        this.order = order;
-        this.date = date;
-        State = state;
-    }
+	public Ordered(int id, Set<Rewiew> rewiews, Order order, Date date, State state) {
+		this.id = id;
+		this.rewiews = rewiews;
+		this.order = order;
+		this.date = date;
+		this.state = state;
+	}
 
-    public Users getUser() {
-        return user;
-    }
+	public Users getUser() {
+		return user;
+	}
 
-    public void setUser(Users user) {
-        this.user = user;
-    }
+	public void setUser(Users user) {
+		this.user = user;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public Set<Rewiew> getRewiews() {
-        return rewiews;
-    }
+	public Set<Rewiew> getRewiews() {
+		return rewiews;
+	}
 
-    public void setRewiews(Set<Rewiew> rewiews) {
-        this.rewiews = rewiews;
-    }
+	public void setRewiews(Set<Rewiew> rewiews) {
+		this.rewiews = rewiews;
+	}
 
-    public Order getOrder() {
-        return order;
-    }
+	public Order getOrder() {
+		return order;
+	}
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
+	public void setOrder(Order order) {
+		this.order = order;
+	}
 
-    public Date getDate() {
-        return date;
-    }
+	public Date getDate() {
+		return date;
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-    public String getState() {
-        return State;
-    }
+	public State getState() {
+		return state;
+	}
 
-    public void setState(String state) {
-        State = state;
-    }
+	public void setState(State state) {
+		this.state = state;
+	}
 }
