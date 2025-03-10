@@ -1,0 +1,1 @@
+{/**application properities e jdbc ayzdı database connection için */}
